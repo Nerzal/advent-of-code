@@ -1,22 +1,18 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
+
+	"github.com/Nerzal/advent-of-code/2023/puzzle2/part1/game"
+	"github.com/Nerzal/advent-of-code/2023/template/file"
 )
 
 func main() {
-	file, err := os.Open("input")
+	input, err := file.GetInputData()
 	if err != nil {
-		fmt.Println(err)
-		return
+		panic(err)
 	}
-	defer file.Close()
 
-	scanner := bufio.NewScanner(file)
-
-	for scanner.Scan() {
-		println(scanner.Text())
-	}
+	converter := game.NewInputConverter(input)
+	fmt.Println(converter)
 }
