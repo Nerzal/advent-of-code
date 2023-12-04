@@ -32,7 +32,9 @@ func (g Game) Solve() int {
 				g.checkBottomRight(rowIndex, columnIndex) ||
 				g.checkLeft(rowIndex, columnIndex) ||
 				g.checkTopLeft(rowIndex, columnIndex) ||
-				g.checkBottomLeft(rowIndex, columnIndex) {
+				g.checkBottomLeft(rowIndex, columnIndex) ||
+				g.checkBottom(rowIndex, columnIndex) ||
+				g.checkTop(rowIndex, columnIndex) {
 				numberHasNeighbor = true
 			}
 		}
@@ -118,6 +120,30 @@ func (g Game) checkBottomLeft(rowIndex, columnIndex int) bool {
 	}
 
 	if g.Data[rowIndex+1][columnIndex-1] == "#" {
+		return true
+	}
+
+	return false
+}
+
+func (g Game) checkTop(rowIndex, columnIndex int) bool {
+	if rowIndex-1 < 0 {
+		return false
+	}
+
+	if g.Data[rowIndex-1][columnIndex] == "#" {
+		return true
+	}
+
+	return false
+}
+
+func (g Game) checkBottom(rowIndex, columnIndex int) bool {
+	if rowIndex+1 >= len(g.Data) {
+		return false
+	}
+
+	if g.Data[rowIndex+1][columnIndex] == "#" {
 		return true
 	}
 
