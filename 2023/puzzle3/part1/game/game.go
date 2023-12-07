@@ -27,7 +27,7 @@ func (g Game) Solve() int {
 
 			numberString += column
 
-			if g.checkRight(rowIndex, columnIndex, len(row)) ||
+			if g.checkRight(rowIndex, columnIndex) ||
 				g.checkTopRight(rowIndex, columnIndex) ||
 				g.checkBottomRight(rowIndex, columnIndex) ||
 				g.checkLeft(rowIndex, columnIndex) ||
@@ -43,9 +43,8 @@ func (g Game) Solve() int {
 	return result
 }
 
-func (g Game) checkRight(rowIndex, columnIndex, lenRow int) bool {
-	if columnIndex+1 < lenRow {
-		// Rechter Nachbar
+func (g Game) checkRight(rowIndex, columnIndex int) bool {
+	if columnIndex+1 < len(g.Data[rowIndex]) {
 		if g.Data[rowIndex][columnIndex+1] == "#" {
 			return true
 		}
@@ -59,7 +58,7 @@ func (g Game) checkTopRight(rowIndex, columnIndex int) bool {
 		return false
 	}
 
-	if columnIndex+1 < len(g.Data[rowIndex-1]) {
+	if columnIndex+1 < len(g.Data[rowIndex]) {
 		if g.Data[rowIndex-1][columnIndex+1] == "#" {
 			return true
 		}
