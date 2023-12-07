@@ -22,7 +22,6 @@ func (s *Service) ToHands() []Hand {
 	for _, line := range s.input {
 		hand := toHand(line)
 		hand.HandType = getHandType(hand)
-		hand.Strength = getHandStrength(hand)
 		result = append(result, hand)
 	}
 
@@ -71,25 +70,6 @@ func getHandType(hand Hand) HandType {
 		result = OnePair
 	case lenMap == 5:
 		result = HighCard
-	}
-
-	return result
-}
-
-func getHandStrength(hand Hand) int {
-	occurrenceMap := map[string]int{}
-
-	for _, card := range hand.Cards {
-		occurrenceMap[card.CardType]++
-	}
-
-	result := 0
-	for key, value := range occurrenceMap {
-		if value == 1 {
-			continue
-		}
-
-		result += GetCardStrength(key) * value
 	}
 
 	return result
