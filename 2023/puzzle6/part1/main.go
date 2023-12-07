@@ -1,11 +1,6 @@
 package main
 
 func main() {
-	// Time:        56     97     77     93
-	// Distance:   499   2210   1097   1440
-
-	// Strecke = Speed * Distance
-
 	times := []int{56, 97, 77, 93}
 	distances := []int{499, 2210, 1097, 1440}
 
