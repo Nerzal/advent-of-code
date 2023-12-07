@@ -146,17 +146,6 @@ func sortHandleFunc(i, j Hand) int {
 		}
 	}
 
-	// Maybe for part 2
-	// if i.HandType == j.HandType {
-	// 	if i.Strength > j.Strength {
-	// 		return 1
-	// 	}
-
-	// 	if i.Strength < j.Strength {
-	// 		return -1
-	// 	}
-	// }
-
 	return 0
 }
 
