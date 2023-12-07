@@ -13,6 +13,27 @@ const (
 	FiveOfAKind  HandType = iota + 1
 )
 
+func (h HandType) String() string {
+	switch h {
+	case HighCard:
+		return "HighCard"
+	case OnePair:
+		return "OnePair"
+	case TwoPair:
+		return "TwoPair"
+	case ThreeOfAKind:
+		return "ThreeOfAKind"
+	case FullHouse:
+		return "FullHouse"
+	case FourOfAKind:
+		return "FourOfAKind"
+	case FiveOfAKind:
+		return "FiveOfAKind"
+	default:
+		return "Unknown"
+	}
+}
+
 type Hand struct {
 	Cards       []Card
 	CardString  string
